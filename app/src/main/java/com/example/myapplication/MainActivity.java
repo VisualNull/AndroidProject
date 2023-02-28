@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,16 +18,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView textView1=findViewById(R.id.textView1);
-        //startActivity(new Intent(this,MainActivity2.class));
-        Button button1=findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(MainActivity.this,MainActivity2.class);
-                startActivity(intent);
-            }
-        });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        goNextPage();
+    }
+    private void goNextPage()
+    {
+        TextView textView1=findViewById(R.id.textView1);
+        textView1.setText("3秒后进入下一个界面");
+        new Handler().postDelayed(mGoNext,3000);
+    }
+    private Runnable mGoNext=new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(MainActivity.this,MainActivity2.class));
+        }
+    };
 }
