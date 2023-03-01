@@ -9,6 +9,6 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is activity3"
+        android:text="@string/This3"
         ></TextView>
 </LinearLayout>

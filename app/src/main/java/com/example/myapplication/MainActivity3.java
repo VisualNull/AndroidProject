@@ -32,7 +32,7 @@ public class MainActivity3 extends AppCompatActivity {
         @Override
         public void run() {
             TextView textView=findViewById(R.id.textView3);
-            textView.setText("你好世界!");
+            textView.setText(R.string.Hello);
         }
     };
 }
