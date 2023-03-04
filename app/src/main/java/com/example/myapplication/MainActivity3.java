@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity3 extends AppCompatActivity {
     //
@@ -25,10 +26,14 @@ public class MainActivity3 extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         setText();
+        goNextPage();
     }
     private void setText()
     {
         new Handler().postDelayed(mSetText,3000);
+    }
+    private void goNextPage(){
+        new Handler().postDelayed(mGoNextPage,5000);
     }
     private Runnable mSetText=new Runnable() {
         @Override
@@ -46,6 +51,12 @@ public class MainActivity3 extends AppCompatActivity {
             textView5.setTextColor(Color.GREEN);
             textView5.setBackgroundResource(R.color.red);
 
+        }
+    };
+    private Runnable mGoNextPage=new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(MainActivity3.this,MainActivity4.class));
         }
     };
 }
