@@ -25,7 +25,7 @@ public class MainActivity4 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ViewGroup.LayoutParams  textViewLayoutParams= textView.getLayoutParams();
-                textViewLayoutParams.width=dip2px(MainActivity4.this,500);
+                textViewLayoutParams.width= dip2px(MainActivity4.this,500);
                 textView.setLayoutParams(textViewLayoutParams);
             }
         });
@@ -36,7 +36,7 @@ public class MainActivity4 extends AppCompatActivity {
             }
         });
     }
-    private int dip2px(Context context,float dpValue)
+    private int dip2px(Context context,float dpValue)//dp转换成px
     {
         float scale=context.getResources().getDisplayMetrics().density;
         return (int)(dpValue*scale+0.5f);
